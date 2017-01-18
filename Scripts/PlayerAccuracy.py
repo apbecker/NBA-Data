@@ -6,6 +6,7 @@ import matplotlib as plt
 from bokeh.plotting import figure, curdoc
 from bokeh.palettes import Spectral6
 from bokeh.models import ColumnDataSource, HoverTool, Div
+from bokeh.charts import Histogram
 import argparse
 import os,sys
 sys.path.append('../DataTools/')
@@ -51,5 +52,6 @@ p.xgrid.grid_line_alpha=0.5
 p.ygrid.grid_line_alpha=0.5
 
 update(p)
-
+hist = Histogram(df['PTS_TYPE'],title='shot type')
 curdoc().add_root(p)
+curdoc().add_root(hist)
